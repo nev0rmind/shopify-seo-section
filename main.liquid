@@ -1,0 +1,130 @@
+  <div class="seo-wrapper">
+    <div class="seo-intro">
+      <h1 class="Heading u-h2">
+        {{ section.settings.seo_main_heading }}
+      </h1>
+      <p> {{ section.settings.seo_intro_text }} </p>
+    </div>
+    {% for block in section.blocks %}
+      <div class="seo-row">
+        <div class="seo-column">
+              <h1 class="Heading u-h2">{{ block.settings.subtitle1 }}</h1>
+        <p> {{ block.settings.subtext1 }} </p>
+        </div>
+        <div class="seo-column">
+        	<h1 class="Heading u-h2">{{ block.settings.subtitle2 }}</h1>
+        	<p> {{ block.settings.subtext2 }} </p>
+        </div>
+
+      </div>
+    {% endfor %}
+
+
+  </div>
+
+  <style>
+    .seo-wrapper {
+    margin: 50px;
+  }
+
+    .seo-intro {
+    text-align: center;
+    padding-bottom: 35px;
+    
+    }
+
+  .seo-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .seo-column {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+    
+  }
+    
+    @media (min-width: 900px) {
+      .seo-column {
+      padding: 25px;
+      }
+      .seo-intro {
+      max-width: 66%;
+      margin: auto;
+      }
+      
+    }
+
+
+
+  </style>
+
+{% schema %}
+  {
+    "name": "SEO Text",
+	"tag": "section",
+    "settings": [
+	{
+      "type": "text",
+      "id": "seo_main_heading",
+      "label": "SEO Main Header"
+	},
+	{
+      "type": "text",
+      "id": "seo_intro_text",
+      "label": "SEO Intro Text"
+	}
+	],
+	"blocks": [
+	{
+			"name": "Item",
+			"type": "item",
+			"settings": [
+                 {
+					"type": "text",
+                    "id": "subtitle1",
+                    "label": "Sub Headline 1"
+				 },
+				  {
+					"type": "text",
+                    "id": "subtext1",
+                    "label": "Sub Text 1"
+				  },
+				  {
+					"type": "text",
+                    "id": "subtitle2",
+                    "label": "Sub Headline 2"
+				 },
+				  {
+					"type": "text",
+                    "id": "subtext2",
+                    "label": "Sub Text 2"
+				  }
+				]
+	}
+	],
+	"presets": [
+      {
+        "name": "SEO Section",
+        "blocks": [
+          {
+            "type": "item"
+          },
+          {
+            "type": "item"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
